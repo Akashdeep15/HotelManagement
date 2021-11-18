@@ -15,9 +15,6 @@ public class ReservationController {
 	
 	public void addReservation() {
 		
-		System.out.println("Enter the Reservation ID");
-		int reservation_id = sc.nextInt();
-		sc.nextLine();
 		
 		System.out.println("Enter the Room Id");
 		int room_id = sc.nextInt();
@@ -35,10 +32,10 @@ public class ReservationController {
 		String check_out = sc.nextLine();
 		
 		System.out.println("Enter the reservation status");
-		String reservation_status = sc.nextLine();
+		int reservation_status = sc.nextInt();
 		
 		// now calling the add to database method
-		addtodb(new Reservation(reservation_id, room_id, guest_id, check_in, check_out, reservation_status) );
+		addtodb(new Reservation(guest_id, room_id, check_in, check_out, reservation_status) );
 		
 		System.out.println("Reservation added successfully");
 		
@@ -47,14 +44,15 @@ public class ReservationController {
 	public void addtodb(Reservation r) {
 		try {
 			Statement statement = DbUtilities.getConnection().createStatement();
-            String sqlQuery="insert into tbl_reservation values(?,?,?,?,?,?)";
+            String sqlQuery="insert into tbl_reservation(Guest_id ,Room_type_id,Check_in,Check_out,Reservation_Status) values(?,?,?,?,?)";
             PreparedStatement pstm= DbUtilities.getConnection().prepareStatement(sqlQuery);
-            pstm.setInt(1, r.getReservation_id());
+          
+          
+            pstm.setInt(1,r.getGuest_id());
             pstm.setInt(2,r.getRoom_id());
-            pstm.setInt(3,r.getGuest_id());
-            pstm.setString(4,r.getCheck_in());
-            pstm.setString(5, r.getCheck_out());
-            pstm.setString(6,r.getReservation());
+            pstm.setString(3,r.getCheck_in());
+            pstm.setString(4, r.getCheck_out());
+            pstm.setInt(5,r.getReservation_Status());
             
             pstm.addBatch(); 		//Adding  all btch of all values at once 
             pstm.executeBatch();	// By this command we are here executing the sql quey
@@ -81,6 +79,7 @@ public class ReservationController {
                 System.out.format("%11s %11s %11s %50s %50s %11s", r_id, g_id, room_type_id, check_in, check_out, r_status);
                 System.out.println();
             
+		}
 		}
 		catch (SQLException throwables) {
             throwables.printStackTrace();

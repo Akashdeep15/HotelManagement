@@ -73,10 +73,10 @@ public class Booking {
 	 * @param check_in_datetime
 	 * @param check_out_datetime
 	 */
-	public Booking(int booking_id, int room_type_id, int guest_id, String check_in_datetime,
+	public Booking(int room_type_id, int guest_id, String check_in_datetime,
 			String check_out_datetime) {
 		super();
-		this.booking_id = booking_id;
+	
 		this.room_type_id = room_type_id;
 		this.guest_id = guest_id;
 		this.check_in_datetime = check_in_datetime;

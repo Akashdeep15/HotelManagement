@@ -250,7 +250,7 @@ public class FrontConsole {
 		if (key == 6)
 		{
 			ReservationController res_controller = new ReservationController();
-			res_controller.showReservation();
+			res_controller.addReservation();
 		}
 		if (key == 7)
 		{

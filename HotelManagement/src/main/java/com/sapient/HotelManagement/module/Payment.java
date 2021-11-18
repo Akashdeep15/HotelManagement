@@ -2,7 +2,6 @@ package com.sapient.HotelManagement.module;
 
 public class Payment {
 
-	private int payment_id;
 	private int guest_id;
 	private int reservation_id;
 	private String add_On;
@@ -11,19 +10,6 @@ public class Payment {
 	private int total_charges;
 	private int payment_status;
 
-	/**
-	 * @return the payment_id
-	 */
-	public int getPayment_id() {
-		return payment_id;
-	}
-
-	/**
-	 * @param payment_id the payment_id to set
-	 */
-	public void setPayment_id(int payment_id) {
-		this.payment_id = payment_id;
-	}
 
 	/**
 	 * @return the guest_id
@@ -72,7 +58,7 @@ public class Payment {
 	}
 
 	public void setRoom_price(int room_price) {
-		room_price = room_price;
+		this.room_price = room_price;
 	}
 
 	/**
@@ -127,11 +113,11 @@ public class Payment {
 	 * @param total_charges
 	 * @param payment_status
 	 */
-	public Payment(int payment_id, int guest_id, int reservation_id, String add_On, int room_price, int number_of_nights,
+	public Payment(int guest_id, int reservation_id, String add_On, int room_price, int number_of_nights,
 			int total_charges, int payment_status) {
 		super();
 
-		this.payment_id = payment_id;
+		
 		this.guest_id = guest_id;
 		this.reservation_id = reservation_id;
 		this.add_On = add_On;
