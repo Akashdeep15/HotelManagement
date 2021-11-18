@@ -4,8 +4,6 @@ public class Room {
 
 private int room_id					;
 private int room_number					;
-private int room_type_id;
-
 private int room_price 					;
 private String room_status 					;
 
@@ -32,18 +30,6 @@ public int getRoom_number() {
  */
 public void setRoom_number(int room_number) {
 	this.room_number = room_number;
-}
-/**
- * @return the room_type_id
- */
-public int getRoom_type_id() {
-	return room_type_id;
-}
-/**
- * @param room_type_id the room_type_id to set
- */
-public void setRoom_type_id(int room_type_id) {
-	this.room_type_id = room_type_id;
 }
 /**
  * @return the room_price
@@ -73,23 +59,17 @@ public void setRoom_status(String room_status) {
 
  * @param room_id
  * @param room_number
- *  @param room_type_id
  * @param room_price
  * @param room_status
  */
-public Room( int room_id, int room_number, int room_type_id, int room_price, String room_status) {
+public Room( int room_id, int room_number, int room_price, String room_status) {
 	super();
 	
 	this.room_id = room_id;
 	this.room_number = room_number;
 	this.room_price = room_price;
 	this.room_status = room_status;
-	this.room_type_id = room_type_id;
 }
-/**
- *
- */
-
 
 	
 }

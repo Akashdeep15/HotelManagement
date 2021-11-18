@@ -1,6 +1,7 @@
 package com.sapient.HotelManagement.controller;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -57,6 +58,29 @@ public class ReservationController {
             
             pstm.addBatch(); 		//Adding  all btch of all values at once 
             pstm.executeBatch();	// By this command we are here executing the sql quey
+		}
+		catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+	}
+	public void showReservation() {
+		try {
+			Statement statement = DbUtilities.getConnection().createStatement();
+            String sqlQuery="Select * From tbl_reservation";
+            ResultSet resultSet = statement.executeQuery(sqlQuery);
+            System.out.printf("%11s %11s %11s %50s %50s %11s", "Reservation_id", "Guest_id", "Room_type_id", "Check_in", "Check_out","Reservation_status");
+            System.out.println();
+            while (resultSet.next()) 
+            {
+            	int r_id = resultSet.getInt("Reservation_id");
+            	int g_id = resultSet.getInt("Guest_id");
+            	int room_type_id = resultSet.getInt("Room_type_id");
+                String check_in = resultSet.getString("Check_in");
+                String check_out = resultSet.getString("Check_out");
+                int r_status = resultSet.getInt("Reservation_status");
+                System.out.format("%11s %11s %11s %50s %50s %11s", r_id, g_id, room_type_id, check_in, check_out, r_status);
+                System.out.println();
+            
 		}
 		catch (SQLException throwables) {
             throwables.printStackTrace();

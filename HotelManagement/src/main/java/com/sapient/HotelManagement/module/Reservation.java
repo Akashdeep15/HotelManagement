@@ -1,40 +1,42 @@
 package com.sapient.HotelManagement.module;
 
 public class Reservation {
-	
+	private String field_name;
 	private int reservation_id ;
 	private int room_id ;
-	private int guest_id;
 	private  String check_in;
 	private String check_out ;
 	private String reservation;
-	
 	/**
-	 
+	 * @return the field_name
+	 */
+	public String getField_name() {
+		return field_name;
+	}
+	/**
+	 * @param field_name
 	 * @param reservation_id
 	 * @param room_id
-	 * @param guest_id
 	 * @param check_in
 	 * @param check_out
 	 * @param reservation
 	 */
-	public Reservation( int reservation_id, int room_id,int guest_id, String check_in, String check_out,
+	public Reservation(String field_name, int reservation_id, int room_id, String check_in, String check_out,
 			String reservation) {
 		super();
-		
+		this.field_name = field_name;
 		this.reservation_id = reservation_id;
 		this.room_id = room_id;
-		this.guest_id = guest_id;
 		this.check_in = check_in;
 		this.check_out = check_out;
 		this.reservation = reservation;
 	}
-	
 	/**
-	 * 
+	 * @param field_name the field_name to set
 	 */
-	
-
+	public void setField_name(String field_name) {
+		this.field_name = field_name;
+	}
 	/**
 	 * @return the reservation_id
 	 */
@@ -65,20 +67,6 @@ public class Reservation {
 	public String getCheck_in() {
 		return check_in;
 	}
-	/**
-	 * @return the guest_id
-	 */
-	public int getGuest_id() {
-		return guest_id;
-	}
-
-	/**
-	 * @param guest_id the guest_id to set
-	 */
-	public void setGuest_id(int guest_id) {
-		this.guest_id = guest_id;
-	}
-
 	/**
 	 * @param check_in the check_in to set
 	 */
@@ -112,7 +100,7 @@ public class Reservation {
 
 }
 //
-
+//Field Name Description Type Length
 //Reservation_id Reservation ID Int 11
 //Guest_id Guest ID Int 11
 //Room_type_id Room Type ID Int 11

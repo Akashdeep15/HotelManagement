@@ -57,8 +57,8 @@ public class GuestController {
             pstm.setString(4, g.getAddress());
             pstm.setString(5,g.getPhone_number());
             pstm.setString(6,g.getEmail_address());
-            
             pstm.addBatch();
+
             pstm.executeBatch();
 
         }

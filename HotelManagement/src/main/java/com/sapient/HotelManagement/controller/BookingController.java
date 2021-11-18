@@ -54,5 +54,16 @@ public class BookingController {
             throwables.printStackTrace();
         }
 	}
+	
+	public void cancelBooking() throws SQLException
+	{
+		System.out.println("Enter the Booking ID");
+		int b_id = sc.nextInt();
+		sc.nextLine();
+		Statement statement = DbUtilities.getConnection().createStatement();
+		String sqlQuery="DELETE FROM tbl_booking WHERE Booking_id = "+b_id+";";
+		statement.executeUpdate(sqlQuery); 
+		System.out.println("Booking Cancelled");
+	}
 
 }
